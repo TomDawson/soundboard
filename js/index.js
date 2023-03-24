@@ -2,8 +2,8 @@
 var soundboardObjectCount = document.querySelectorAll(".soundboard-object").length;
 
 /* Add click event listener to all .soundboard-object elements */
-for (var i = 0; i < soundboardObjectCount, i++) {
-    document.querySelector(".soundboard-object")[i].addEventListener("click", playSound());
+for (var i = 0; i < soundboardObjectCount; i++) {
+    document.querySelectorAll(".soundboard-object")[i].addEventListener("click", playSound);
 }
 
 function playSound() {
