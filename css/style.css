@@ -1,34 +1,61 @@
 html {
   font-family: 'Lilita One', cursive;
   font-size: 1em;
+  text-align: center;
   line-height: 1.4;
+  /* Variables */
   --background: #040F16;
 }
 
+::-moz-selection {
+  background: none;
+  text-shadow: none;
+}
+
+::selection {
+  background: none;
+  text-shadow: none;
+}
+
 body {
+  /* Window-sized page */
   min-height: 100vh;
-  text-align: center;
-  background-color:#ffaf99;
+  justify-content: center; /* centered vertically */
+  pointer-events: auto;
+  /* Mesh gradient background */
+  background-color:hsla(240,100%,6%,1);
   background-image:
-  radial-gradient(at 74% 30%, hsla(255,77%,73%,1) 0px, transparent 50%),
-  radial-gradient(at 19% 69%, hsla(158,71%,62%,1) 0px, transparent 50%),
-  radial-gradient(at 79% 49%, hsla(132,72%,66%,1) 0px, transparent 50%),
-  radial-gradient(at 95% 74%, hsla(263,86%,75%,1) 0px, transparent 50%),
-  radial-gradient(at 89% 40%, hsla(294,80%,66%,1) 0px, transparent 50%),
-  radial-gradient(at 96% 25%, hsla(305,91%,64%,1) 0px, transparent 50%),
-  radial-gradient(at 49% 28%, hsla(210,73%,78%,1) 0px, transparent 50%);
+  radial-gradient(at 40% 20%, hsla(235,46%,32%,1) 0px, transparent 50%),
+  radial-gradient(at 80% 0%, hsla(207,46%,32%,1) 0px, transparent 50%),
+  radial-gradient(at 0% 50%, hsla(206,46%,32%,1) 0px, transparent 50%),
+  radial-gradient(at 80% 50%, hsla(215,46%,32%,1) 0px, transparent 50%),
+  radial-gradient(at 0% 100%, hsla(235,46%,32%,1) 0px, transparent 50%),
+  radial-gradient(at 80% 100%, hsla(207,46%,32%,1) 0px, transparent 50%),
+  radial-gradient(at 0% 0%, hsla(206,46%,32%,1) 0px, transparent 50%);
+}
+
+.soundboard {
+  padding: 0;
+  width: clamp(0px, 95vw, 95vw); 
+  margin-left: auto;
+  margin-right: auto;
+  box-sizing: border-box;
+}
+
+.soundboard img {
+  max-width: 200px;
+  max-height: 200px;
 }
 
 h1 {
   font-size: 5rem;
   color: #DBEDF3;
-  text-shadow: 3px 0 #DA0463;
-
-}
-
-footer {
-  color: #DBEDF3;
-  font-family: sans-serif;
+  padding-bottom: 30px;
+  /* Kill default spacing */
+  margin-block-start: 0em;
+  margin-block-end: 0em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
 }
 
 audio,
@@ -48,17 +75,26 @@ video {
   margin: 10% auto;
 }
 
+/* Helper classes */
+
+.text-shadow {
+  text-shadow: 
+  -1px -1px 0 var(--background), /* left-top */
+  -1px 1px 0 var(--background), /* left-bottom */
+  1px -1px 0 var(--background), /* right-top */
+  3px 3px 0 var(--background); /* right-bottom */
+}
+
+.flex {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  align-content: flex-start;
+  justify-content: space-around;
+  align-items: center;
+}
+
 .pressed {
   box-shadow: 0 3px 4px 0 #DBEDF3;
   opacity: 0.5;
-}
-
-::-moz-selection {
-  background: #b3d4fc;
-  text-shadow: none;
-}
-
-::selection {
-  background: #b3d4fc;
-  text-shadow: none;
 }
