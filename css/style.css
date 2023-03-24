@@ -42,7 +42,7 @@ body {
   box-sizing: border-box;
 }
 
-.soundboard img {
+.soundboard-object {
   max-width: 200px;
   max-height: 200px;
 }
