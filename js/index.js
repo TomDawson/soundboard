@@ -1,16 +1,41 @@
-/* Obtain number of elements with class name .soundboard-object */
-var soundboardObjectCount = document.querySelectorAll(".soundboard-object").length;
+/* Obtain all elements with class name .soundboard-object */
+var soundboardObjects = document.querySelectorAll(".soundboard-object");
+
+/* Keep track of current audio playing */
+var currentAudio = null;
 
 /* Add click event listener to all .soundboard-object elements */
-for (var i = 0; i < soundboardObjectCount; i++) {
-    document.querySelectorAll(".soundboard-object")[i].addEventListener("click", playSound);
-}
+for (var i = 0; i < soundboardObjects.length; i++) {
 
-function playSound() {
-    console.log("soundboard-object-clicked");
-}
+    const soundboardObjectId = soundboardObjects[i].getAttribute('id'); // Obtain ID of current soundboard object
+    const soundboardObject = document.getElementById(soundboardObjectId); // Obtain soundboard object using its id
 
-window.onclick = e => {
-    console.log(e.target);  // to get the element
-    console.log(e.target.tagName);  // to get the element tag name alone
-} 
+    soundboardObject.addEventListener("click", function () {
+
+        // pause the currently playing audio, if any
+        if (currentAudio !== null) {
+            currentAudio.pause();
+        }
+
+        switch (soundboardObjectId) {
+            case "banjo-kazooie":
+                var audio = new Audio("./sounds/banjo-kazooie-guh-huh.wav");
+                audio.play();
+                currentAudio = audio;
+            break;
+
+            case "pizza-song":
+                var audio = new Audio("./sounds/pizza-song.mp3");
+                audio.play();
+                currentAudio = audio;
+            break;
+
+            case "bear":
+                var audio = new Audio("./sounds/bear.mp3");
+                audio.play();
+                currentAudio = audio;
+            break;
+        }
+
+    });
+}
